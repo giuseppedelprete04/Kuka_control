@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+<!--	start robot_state_publisher and joint_state_publisher nodes  -->
+	<arg name="model" />
+	<param name="robot_description" command="$(find xacro)/xacro $(find kuka_control)/urdf/kuka_iiwa.xacro" />
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+        </node>
+
+	 <node pkg="kuka_control" name="kuka_control" type="kuka_control" output="screen">
+
+		<param name="left_lim" value="1.2" />
+		<param name="right_lim" value="-1.2" />
+
+	</node> 
+
+</launch>
